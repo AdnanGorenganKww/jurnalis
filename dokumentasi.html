@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dokumentasi — JURNALISTIK</title>
+  <meta name="description" content="Arsip dokumentasi kegiatan JURNALISTIK — cari berdasarkan judul, kategori, atau divisi.">
+
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand" aria-label="JURNALISTIK — Beranda">
+        <img src="assets/logo/logo.png" alt="" class="brand-logo" width="32" height="32">
+        <span class="brand-name">JURNALISTIK</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="profil.html" class="nav-link">Profil</a></li>
+          <li><a href="dokumentasi.html" class="nav-link is-active">Dokumentasi</a></li>
+          <li><a href="anggota.html" class="nav-link">Anggota</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="page-intro" aria-labelledby="docs-title">
+      <div class="container">
+        <p class="hero-eyebrow" data-reveal>Arsip Kegiatan</p>
+        <h1 id="docs-title" class="page-intro-title" data-reveal>
+          Dokumentasi JURNALISTIK
+        </h1>
+        <p class="page-intro-text" data-reveal data-reveal-delay="1">
+          Foto dan video resolusi penuh disimpan di Google Drive — halaman ini adalah
+          etalasenya.
+        </p>
+      </div>
+    </section>
+
+    <section class="docs-toolbar" aria-label="Filter kategori dokumentasi">
+      <div class="container">
+        <div class="division-filter" id="docsCategoryFilter" role="group" aria-label="Filter berdasarkan kategori" data-reveal>
+          <button type="button" class="filter-chip is-active" data-category="semua" aria-pressed="true">
+            Semua
+          </button>
+          <button type="button" class="filter-chip" data-category="event-sekolah" aria-pressed="false">
+            Event Sekolah
+          </button>
+          <button type="button" class="filter-chip" data-category="organisasi" aria-pressed="false">
+            Organisasi
+          </button>
+          <button type="button" class="filter-chip" data-category="school-life" aria-pressed="false">
+            School Life
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="docs-grid-section" aria-label="Hasil dokumentasi">
+      <div class="container">
+
+        <!--
+          Grid ini kosong dengan sengaja.
+          Diisi oleh dokumentasi.js (Part 2C) berdasarkan data/dokumentasi.js (Part 2A).
+          Template per-kartu (untuk referensi JS nanti):
+
+          <li class="doc-grid-card" data-id="upacara-bendera" data-category="event-sekolah">
+            <button type="button" class="doc-grid-trigger" aria-haspopup="dialog">
+              <img src="assets/dokumentasi/upacara-bendera.jpg" alt="Dokumentasi Upacara Bendera" loading="lazy">
+              <span class="doc-grid-caption">
+                <strong>Upacara Bendera</strong>
+                <small>12 Agustus 2026</small>
+              </span>
+            </button>
+          </li>
+        -->
+        <ul class="doc-grid" id="docsGrid" role="list" aria-live="polite" aria-busy="true">
+          <li class="doc-grid-skeleton" aria-hidden="true"></li>
+          <li class="doc-grid-skeleton" aria-hidden="true"></li>
+          <li class="doc-grid-skeleton" aria-hidden="true"></li>
+          <li class="doc-grid-skeleton" aria-hidden="true"></li>
+          <li class="doc-grid-skeleton" aria-hidden="true"></li>
+          <li class="doc-grid-skeleton" aria-hidden="true"></li>
+        </ul>
+
+        <p class="docs-empty-state" id="docsEmptyState" hidden>
+          Nggak ada dokumentasi yang cocok. Coba kata kunci lain.
+        </p>
+
+        <noscript>
+          <p class="docs-empty-state">
+            Aktifkan JavaScript untuk menampilkan arsip dokumentasi.
+          </p>
+        </noscript>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!--
+    Panel detail dokumentasi.
+    Disembunyikan default (hidden), dibuka via dokumentasi.js saat kartu diklik
+    atau saat URL punya hash, misalnya dokumentasi.html#upacara-bendera.
+  -->
+  <div
+    class="doc-detail-overlay"
+    id="docDetailOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="docDetailTitle"
+    hidden
+  >
+    <div class="doc-detail-panel">
+
+      <button type="button" class="doc-detail-close" id="docDetailClose" aria-label="Kembali">
+        <i class="ph ph-arrow-left" aria-hidden="true"></i>
+        Kembali
+      </button>
+
+      <div class="doc-detail-media">
+        <img src="" alt="" id="docDetailImage">
+      </div>
+
+      <div class="doc-detail-body">
+        <h2 id="docDetailTitle" class="doc-detail-title"></h2>
+        <p class="doc-detail-date" id="docDetailDate"></p>
+        <!-- BENAR -->
+<p class="doc-detail-description" id="docDetailDescription"></p>
+
+<a
+  href="#"
+  id="docDetailDriveLink"
+  class="btn btn-primary"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  Lihat Dokumentasi Lengkap
+  <i class="ph ph-arrow-up-right" aria-hidden="true"></i>
+</a>
+      </div>
+
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <span class="brand-name">JURNALISTIK</span>
+        <p class="footer-tagline">Mengabadikan cerita.<br>Menyampaikan informasi.</p>
+<a
+  href="https://www.instagram.com/jurnalis.smantiga/"
+  class="social-link"
+  aria-label="Instagram JURNALISTIK"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+</a>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navigasi footer">
+        <ul>
+          <li><a href="dokumentasi.html">Dokumentasi</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-bottom">
+        <p>Web ini dibuat oleh <a href="#" class="footer-credit-link">Adnan Sya'ban Mubarok</a></p>
+        <p>&copy; <span id="currentYear">2026</span> JURNALISTIK</p>
+      </div>
+
+    </div>
+  </footer>
+  <script src="data/dokumentasi.js"></script>
+  <script src="js/dokumentasi.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
