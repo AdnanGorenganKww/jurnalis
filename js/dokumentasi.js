@@ -84,13 +84,15 @@ function renderGrid(state, grid, emptyState) {
     year: "numeric"
   });
 
-  filtered.forEach((doc) => {
+  filtered.forEach((doc, index) => {
     const li = document.createElement("li");
     li.className = "doc-grid-card";
     li.dataset.id = doc.id;
     li.dataset.category = Array.isArray(doc.category)
       ? doc.category.join(" ")
       : doc.category;
+    li.setAttribute("data-reveal", "");
+    li.setAttribute("data-reveal-delay", String(index % 4));
 
     const formattedDate = formatter.format(new Date(doc.date));
 
@@ -108,6 +110,35 @@ function renderGrid(state, grid, emptyState) {
 
     grid.appendChild(li);
   });
+
+  attachRevealToDocCards(grid);
+}
+
+function attachRevealToDocCards(grid) {
+  const cards = grid.querySelectorAll("[data-reveal]");
+  const prefersReducedMotion = window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches;
+
+  if (prefersReducedMotion) {
+    cards.forEach((card) => card.classList.add("is-visible"));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries, currentObserver) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+
+        const delay = Number(entry.target.dataset.revealDelay || 0);
+        window.setTimeout(() => entry.target.classList.add("is-visible"), delay * 80);
+        currentObserver.unobserve(entry.target);
+      });
+    },
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+  );
+
+  cards.forEach((card) => observer.observe(card));
 }
 
 /* -------------------------------------------------- */
