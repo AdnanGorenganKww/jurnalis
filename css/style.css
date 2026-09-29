@@ -3019,6 +3019,14 @@ section {
   padding-bottom: var(--space-3);
 }
 
+.docs-toolbar {
+  padding-block: var(--space-4);
+}
+
+.docs-grid-section {
+  padding-top: var(--space-4);
+}
+
 /* Matikan garis semu di sebelah kiri yang mendorong elemen */
 .org-tier-core::before,
 .org-tier-core::after {

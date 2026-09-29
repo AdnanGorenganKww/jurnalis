@@ -90,7 +90,11 @@ function initDocsPreview() {
   const grid = document.getElementById("docsScroll");
   if (!grid || typeof dokumentasiData === "undefined") return;
 
-  dokumentasiData.forEach((doc) => {
+  const featuredDocs = [...dokumentasiData]
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, 3);
+
+  featuredDocs.forEach((doc) => {
     const card = document.createElement("a");
     card.href = `dokumentasi.html#${doc.id}`;
     card.className = "doc-card";
