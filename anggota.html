@@ -126,6 +126,19 @@
           </button>
         </div>
 
+        <section class="division-intro" id="divisionIntro" aria-live="polite" aria-atomic="true" data-reveal>
+          <div class="division-intro-icon" aria-hidden="true">
+            <i class="ph ph-users-three"></i>
+          </div>
+          <div class="division-intro-content">
+            <p class="division-intro-eyebrow">Kenali Divisi</p>
+            <h3 class="division-intro-title" id="divisionIntroTitle">Semua Divisi</h3>
+            <p class="division-intro-description" id="divisionIntroDescription">
+              Kenali para anggota JURNALISTIK dari berbagai divisi yang bekerja bersama untuk membuat cerita dan informasi.
+            </p>
+          </div>
+        </section>
+
         <!--
           Grid ini kosong dengan sengaja.
           Diisi oleh anggota.js (Part 2D) berdasarkan data/anggota.js (Part 2A).
@@ -171,15 +184,17 @@
     hidden
   >
     <div class="member-detail-panel">
-      <div class="member-detail-toolbar">
-        <button type="button" class="member-detail-close" id="memberDetailClose" aria-label="Tutup detail anggota">
-          <i class="ph ph-x" aria-hidden="true"></i>
-        </button>
+      <div class="member-detail-header">
+        <h2 class="member-detail-name" id="memberDetailName"></h2>
+        <div class="member-detail-toolbar">
+          <button type="button" class="member-detail-close" id="memberDetailClose" aria-label="Tutup detail anggota">
+            <i class="ph ph-x" aria-hidden="true"></i>
+          </button>
+        </div>
       </div>
       <img class="member-detail-image" id="memberDetailImage" src="" alt="">
       <div class="member-detail-body">
         <p class="member-detail-role" id="memberDetailRole"></p>
-        <h2 class="member-detail-name" id="memberDetailName"></h2>
         <p class="member-detail-class" id="memberDetailClass"></p>
         <p class="member-detail-intro" id="memberDetailIntro"></p>
         <p class="member-detail-quote" id="memberDetailQuote" hidden></p>
@@ -202,6 +217,10 @@
           rel="noopener noreferrer"
         >
           <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+          <span class="social-link-text">
+            <strong>Instagram JURNALISTIK</strong>
+            <span>@jurnalis.smantiga</span>
+          </span>
         </a>
       </div>
 

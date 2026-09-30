@@ -18,16 +18,17 @@ document.addEventListener("DOMContentLoaded", () => {
   const grid = document.getElementById("memberGrid");
   const emptyState = document.getElementById("memberEmptyState");
   const filterGroup = document.getElementById("divisionFilter");
+  const divisionIntro = document.getElementById("divisionIntro");
 
   initFilterFromUrl(state, filterGroup);
-  renderMemberGrid(state, grid, emptyState);
+  renderMemberGrid(state, grid, emptyState, divisionIntro);
 
   filterGroup?.addEventListener("click", (event) => {
     const chip = event.target.closest(".filter-chip");
     if (!chip) return;
     setActiveChip(filterGroup, chip);
     state.divisi = chip.dataset.filter;
-    renderMemberGrid(state, grid, emptyState);
+    renderMemberGrid(state, grid, emptyState, divisionIntro);
   });
 
   initMemberDetailOverlay(grid);
@@ -160,8 +161,10 @@ function closeMemberDetail() {
 /* -------------------------------------------------- */
 /* Render grid anggota berdasarkan filter divisi        */
 /* -------------------------------------------------- */
-function renderMemberGrid(state, grid, emptyState) {
+function renderMemberGrid(state, grid, emptyState, divisionIntro) {
   if (!grid) return;
+
+  updateDivisionIntro(state.divisi, divisionIntro);
 
   const filtered =
     state.divisi === "semua"
@@ -209,6 +212,63 @@ function renderMemberGrid(state, grid, emptyState) {
   // Kartu baru ditambahkan setelah main.js pasang observer-nya duluan,
   // jadi reveal animation perlu di-attach ulang khusus untuk kartu ini.
   attachRevealToNewCards(grid);
+}
+
+function updateDivisionIntro(divisi, intro) {
+  if (!intro) return;
+
+  const divisions = {
+    semua: {
+      title: "Semua Divisi",
+      description:
+        "Kenali para anggota JURNALISTIK dari berbagai divisi yang bekerja bersama untuk membuat cerita dan informasi.",
+      icon: "ph-users-three"
+    },
+    kreatif: {
+      title: "Kreatif",
+      description:
+        "Mengembangkan ide dan konsep konten agar setiap karya JURNALISTIK terasa segar, relevan, dan bermakna.",
+      icon: "ph-palette"
+    },
+    "desain-grafis": {
+      title: "Desain Grafis",
+      description:
+        "Mengolah ide menjadi visual yang menarik dan komunikatif, mulai dari poster hingga identitas konten.",
+      icon: "ph-paint-brush"
+    },
+    editing: {
+      title: "Editing",
+      description:
+        "Menyusun dan menyempurnakan foto maupun video agar setiap dokumentasi siap dinikmati dan dibagikan.",
+      icon: "ph-film-slate"
+    },
+    fotografi: {
+      title: "Fotografi",
+      description:
+        "Mengabadikan momen dan cerita di lingkungan sekolah melalui sudut pandang fotografi.",
+      icon: "ph-camera"
+    },
+    videografi: {
+      title: "Videografi",
+      description:
+        "Merekam momen dan merangkainya menjadi cerita bergerak yang hidup dan berkesan.",
+      icon: "ph-video-camera"
+    },
+    artikel: {
+      title: "Artikel",
+      description:
+        "Merangkai informasi dan cerita sekolah menjadi tulisan yang jelas, menarik, dan mudah dipahami.",
+      icon: "ph-newspaper"
+    }
+  };
+  const content = divisions[divisi] || divisions.semua;
+  const title = intro.querySelector("#divisionIntroTitle");
+  const description = intro.querySelector("#divisionIntroDescription");
+  const icon = intro.querySelector(".division-intro-icon i");
+
+  if (title) title.textContent = content.title;
+  if (description) description.textContent = content.description;
+  if (icon) icon.className = `ph ${content.icon}`;
 }
 
 /* -------------------------------------------------- */
