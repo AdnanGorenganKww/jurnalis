@@ -107,12 +107,15 @@ function openMemberDetail(member, trigger) {
   if (!overlay || !image || !name || !role || !memberClass || !intro || !quote) return;
 
   activeMemberTrigger = trigger;
-  image.src = member.foto;
+  image.hidden = !member.foto;
+  if (member.foto) image.src = member.foto;
   image.alt = `Foto ${member.nama}`;
   name.textContent = member.nama;
   role.textContent = member.jabatan || formatDivisiLabel(member.divisi);
   memberClass.textContent = `Kelas: ${member.kelas || "Belum ada data"}`;
-  intro.textContent = member.perkenalan || "";
+  memberClass.hidden = false;
+  intro.textContent = member.perkenalan || "Belum ada data";
+  intro.hidden = false;
   quote.textContent = member.quote ? `“${member.quote}”` : "";
   quote.hidden = !member.quote;
 
@@ -192,7 +195,7 @@ function renderMemberGrid(state, grid, emptyState, divisionIntro) {
     li.innerHTML = `
       <div class="member-card-trigger" role="button" tabindex="0" aria-label="Lihat foto dan detail ${member.nama}">
         <div class="member-card-photo">
-          <img src="${member.foto}" alt="Foto ${member.nama}" loading="lazy">
+          ${member.foto ? `<img src="${member.foto}" alt="Foto ${member.nama}" loading="lazy">` : ""}
         </div>
         <h3 class="member-card-name">${member.nama}</h3>
         <p class="member-card-role">${

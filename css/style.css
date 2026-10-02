@@ -741,7 +741,7 @@ section {
 
 .member-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-5);
 }
 
@@ -790,38 +790,64 @@ section {
 }
 
 .member-card {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(17, 20, 24, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 252, 0.96));
   text-align: center;
-  padding: var(--space-5);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
   transition: transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+    box-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 
 .member-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: rgba(74, 144, 226, 0.2);
+  box-shadow: 0 18px 40px rgb(15 23 42 / 0.08);
+}
+
+.member-card-trigger {
+  display: block;
+  width: 100%;
+  cursor: pointer;
 }
 
 .member-card-photo {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-sm);
+  aspect-ratio: 9 / 16;
+  border-radius: 1rem;
   overflow: hidden;
-  margin-bottom: var(--space-4);
-  background-color: var(--color-bg-soft);
+  margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, var(--color-bg-soft), #edf3ff);
+  box-shadow: inset 0 0 0 1px rgba(17, 20, 24, 0.04);
 }
 
 .member-card-photo img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.member-card:hover .member-card-photo img {
+  transform: scale(1.02);
+}
+
+.member-card-name {
+  margin: 0;
+  font-size: clamp(1.05rem, 0.98rem + 0.22vw, 1.2rem);
+  color: var(--color-text);
+  line-height: 1.2;
 }
 
 .member-card-role {
-  font-size: var(--text-sm);
-  color: var(--color-primary);
-  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-top: var(--space-1);
 }
 
@@ -829,6 +855,7 @@ section {
   font-size: var(--text-sm);
   font-style: italic;
   margin-top: var(--space-3);
+  color: var(--color-text-muted);
 }
 
 .member-skeleton,
@@ -2115,13 +2142,19 @@ section {
   padding: var(--space-5);
   text-align: center;
   min-width: 11rem;
+  cursor: pointer;
   transition: transform var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out);
 }
 
-.org-card:hover {
+.org-card:hover,
+.org-card:focus-visible {
   transform: translateY(-6px);
   box-shadow: var(--shadow-md);
+}
+
+.org-card[data-leader]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2), var(--shadow-md);
 }
 
 .org-card-lead {
@@ -2227,43 +2260,63 @@ section {
 
 .member-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-5);
 }
 
 .member-card {
+  width: 100%;
+  padding: var(--space-3);
+  border-radius: 1.25rem;
+  border: 1px solid rgba(17, 20, 24, 0.06);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(246, 249, 252, 0.96));
   text-align: center;
-  padding: var(--space-5);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--color-border);
   transition: transform var(--duration-base) var(--ease-out),
-    box-shadow var(--duration-base) var(--ease-out);
+    box-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
 }
 
 .member-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+  border-color: rgba(74, 144, 226, 0.2);
+  box-shadow: 0 18px 40px rgb(15 23 42 / 0.08);
 }
 
 .member-card-photo {
   width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: var(--radius-sm);
+  aspect-ratio: 9 / 16;
+  border-radius: 1rem;
   overflow: hidden;
-  margin-bottom: var(--space-4);
-  background-color: var(--color-bg-soft);
+  margin-bottom: var(--space-3);
+  background: linear-gradient(135deg, var(--color-bg-soft), #edf3ff);
+  box-shadow: inset 0 0 0 1px rgba(17, 20, 24, 0.04);
 }
 
 .member-card-photo img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+  object-position: center top;
+  transition: transform var(--duration-base) var(--ease-out);
+}
+
+.member-card:hover .member-card-photo img {
+  transform: scale(1.02);
+}
+
+.member-card-name {
+  margin: 0;
+  font-size: clamp(1.05rem, 0.98rem + 0.22vw, 1.2rem);
+  color: var(--color-text);
+  line-height: 1.2;
 }
 
 .member-card-role {
-  font-size: var(--text-sm);
-  color: var(--color-primary);
-  font-weight: 600;
+  font-size: var(--text-xs);
+  color: var(--color-primary-dark);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   margin-top: var(--space-1);
 }
 
@@ -2271,6 +2324,7 @@ section {
   font-size: var(--text-sm);
   font-style: italic;
   margin-top: var(--space-3);
+  color: var(--color-text-muted);
 }
 
 .member-skeleton,
@@ -2293,6 +2347,38 @@ section {
   }
   to {
     background-position: -200% 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .member-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.9rem;
+  }
+
+  .member-card {
+    padding: 0.75rem;
+    border-radius: 1rem;
+  }
+
+  .member-card-photo {
+    aspect-ratio: 9 / 16;
+    border-radius: 0.8rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .member-card-name {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .member-card-role {
+    letter-spacing: 0.06em;
+  }
+
+  .member-card-quote {
+    font-size: 0.78rem;
+    line-height: 1.5;
   }
 }
 
@@ -2901,15 +2987,13 @@ section {
   object-fit: cover;
   margin-inline: auto;
   margin-bottom: var(--space-3);
-  background-color: var(--color-bg-soft); /* Warna pengganti kalau gambar belum dimuat */
+  background-color: var(--color-bg-soft);
 }
-/* ==================================================
-   FIX: Posisi Ketua & Wakil Ketua Presisi di Tengah
-   ================================================== */
+
 .org-tier-core {
-  display: flex !important;
-  justify-content: center !important; /* Paksa posisi tepat di tengah */
-  align-items: center !important;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
   flex-wrap: wrap;
   gap: var(--space-6, 1.5rem);
   width: 100%;
@@ -2917,42 +3001,45 @@ section {
   position: relative;
 }
 
-/* Matikan pseudo-element garis yang membuat posisi terdorong ke kanan */
 .org-tier-core::after {
   display: none !important;
 }
 
-/* Atur ukuran kartu Ketua & Wakil agar seimbang */
 .org-card-lead {
-  min-width: 14rem;
+  flex: 1 1 0;
+  min-width: 0;
   max-width: 18rem;
   margin: 0;
 }
 
-/* Tampilan di HP / Layar Kecil */
-@media (max-width: 640px) {
+@media (max-width: 767px) {
   .org-tier-core {
-    flex-direction: column;
-    align-items: center !important;
-    gap: var(--space-4, 1rem);
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 0.7rem;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  .org-card {
+    min-width: 0;
+    padding: 0.7rem;
   }
 
   .org-card-lead {
-    width: 100%;
-    max-width: 16rem;
+    flex: 1 1 0;
+    width: auto;
+    max-width: none;
+    min-width: 0;
   }
-}
-/* ==================================================
-   FIX KETUA & WAKIL KETUA PRESISI DI TENGAH
-   ================================================== */
-.org-tier-core {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: stretch !important;
-  flex-wrap: wrap !important;
-  gap: var(--space-6, 2rem) !important;
-  width: 100% !important;
-  margin-inline: auto !important;
+
+  .org-card-photo,
+  .org-card-lead .org-card-photo {
+    aspect-ratio: 9 / 16;
+    border-radius: 0.75rem;
+    margin-bottom: 0.65rem;
+  }
 }
 
 .member-card-trigger {
@@ -2990,7 +3077,7 @@ section {
 
 .member-detail-panel {
   position: relative;
-  width: min(100%, 48rem);
+  width: min(100%, 34rem);
   max-height: 95vh;
   overflow-y: auto;
   padding: 0;
@@ -3037,20 +3124,30 @@ section {
 
 .member-detail-image {
   display: block;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  object-fit: contain;
+  width: min(72vw, 18rem);
+  aspect-ratio: 9 / 16;
+  margin: 0 auto 1rem;
+  object-fit: cover;
+  object-position: center top;
   background-color: var(--color-bg-soft);
+  border: 1px solid rgba(17, 20, 24, 0.08);
+  border-radius: var(--radius-md);
+  box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.8);
 }
 
 .member-detail-body {
-  padding: var(--space-5) var(--space-6) var(--space-6);
+  display: grid;
+  gap: 0.9rem;
+  padding: 1rem 1.2rem 1.5rem;
+  text-align: left;
 }
 
 .member-detail-role {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   width: fit-content;
+  margin: 0;
   padding: 0.35rem 0.7rem;
   border-radius: var(--radius-pill);
   background-color: var(--color-primary-soft);
@@ -3097,7 +3194,7 @@ section {
 
 .member-detail-class {
   display: inline-block;
-  margin-top: var(--space-2);
+  margin: 0;
   padding: 0.25rem 0.65rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-pill);
@@ -3106,17 +3203,19 @@ section {
 }
 
 .member-detail-intro {
-  margin-top: var(--space-3);
+  margin-top: var(--space-1);
+  text-align: left;
 }
 
 .member-detail-quote {
-  margin-top: var(--space-4);
+  margin-top: var(--space-2);
   padding: var(--space-3) var(--space-4);
   border-left: 3px solid var(--color-primary);
   border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
   background-color: var(--color-bg-soft);
   font-style: italic;
   color: var(--color-text-muted);
+  text-align: left;
 }
 
 @media (max-width: 640px) {
@@ -3183,13 +3282,48 @@ section {
    ORG STRUCTURE — kartu modern
    ================================================== */
 .org-tier-core {
-  display: flex !important;
-  justify-content: center !important;
-  align-items: stretch !important;
-  flex-wrap: wrap !important;
-  gap: var(--space-5, 1.5rem) !important;
-  width: 100% !important;
-  margin-inline: auto !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: var(--space-5, 1.5rem);
+  width: min(100%, 62rem);
+  margin-inline: auto;
+}
+
+.org-tier-core + .org-tier-core {
+  margin-top: var(--space-5);
+}
+
+.org-lead-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-5);
+}
+
+.org-lead-label {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-dark);
+}
+
+.org-tier-core.org-pembina-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  justify-content: center;
+  width: min(100%, 38rem);
+  margin-inline: auto;
+}
+
+.org-pembina-card {
+  width: 100%;
+  min-width: 0;
+  max-width: 18.5rem;
+  justify-self: center;
 }
 
 .org-tier-core::before,
@@ -3202,39 +3336,47 @@ section {
 }
 
 .org-card {
-  border: 1px solid var(--color-border) !important;
-  border-radius: 14px !important;
+  border: 1px solid var(--color-border);
+  border-radius: 14px;
   background: var(--color-white);
   box-shadow: 0 8px 24px rgb(15 23 42 / 0.05);
   padding: var(--space-4);
   text-align: left;
+  cursor: pointer;
   transition: transform var(--duration-base) var(--ease-out),
     box-shadow var(--duration-base) var(--ease-out),
     border-color var(--duration-base) var(--ease-out);
 }
 
-.org-card:hover {
+.org-card:hover,
+.org-card:focus-visible {
   transform: translateY(-3px);
-  border-color: #cbd8e8 !important;
+  border-color: #cbd8e8;
   box-shadow: 0 14px 30px rgb(15 23 42 / 0.09);
 }
 
+.org-card[data-leader]:focus-visible {
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2), 0 14px 30px rgb(15 23 42 / 0.09);
+}
+
 .org-card-lead {
-  flex: 1 1 240px !important;
-  max-width: 280px !important;
-  padding: var(--space-4) !important;
-  margin: 0 !important;
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 18.5rem;
+  padding: var(--space-4);
+  margin: 0;
 }
 
 .org-card-photo,
 .org-card-lead .org-card-photo {
-  width: 100% !important;
-  height: auto !important;
-  aspect-ratio: 4 / 3;
-  border: 0 !important;
-  border-radius: 10px !important;
-  box-shadow: none !important;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 9 / 16;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: none;
   object-fit: cover;
+  object-position: center top;
   margin: 0 0 var(--space-4);
   background-color: var(--color-bg-soft);
   font-size: 0;
@@ -3263,9 +3405,41 @@ section {
 }
 
 @media (max-width: 767px) {
+  .org-tier-core {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.7rem;
+    justify-content: stretch;
+  }
+
+  .org-tier-core.org-pembina-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
+  }
+
+  .org-card {
+    min-width: 0;
+    padding: 0.7rem;
+  }
+
   .org-card-lead {
-    max-width: 100% !important;
-    flex: 1 1 100% !important;
+    flex: none;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+  }
+
+  .org-pembina-row .org-pembina-card {
+    width: 100%;
+    max-width: 18.5rem;
+  }
+
+  .org-card-photo,
+  .org-card-lead .org-card-photo {
+    aspect-ratio: 9 / 16;
+    border-radius: 0.75rem;
+    margin-bottom: 0.65rem;
   }
 }
 
@@ -3311,6 +3485,17 @@ section {
   border: 1px solid var(--color-border);
   border-radius: var(--radius-md);
   background: var(--color-white);
+  transition: transform var(--duration-base) var(--ease-out),
+    box-shadow var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) var(--ease-out);
+}
+
+.org-person-card:hover,
+.org-person-card:active,
+.org-person-card:focus-visible {
+  transform: translateY(-3px);
+  border-color: #cbd8e8;
+  box-shadow: 0 14px 30px rgb(15 23 42 / 0.09);
 }
 
 .org-person-media {
