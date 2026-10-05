@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anggota — JURNALISTIK</title>
+  <meta name="description" content="Struktur anggota JURNALISTIK — kepengurusan inti dan anggota per divisi: Kreatif, Desain Grafis, Editing, Fotografi, Videografi, Artikel.">
+
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand" aria-label="JURNALISTIK — Beranda">
+        <img src="assets/logo/logo.png" alt="" class="brand-logo" width="32" height="32">
+        <span class="brand-name">JURNALISTIK</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="profil.html" class="nav-link">Profil</a></li>
+          <li><a href="dokumentasi.html" class="nav-link">Dokumentasi</a></li>
+          <li><a href="anggota.html" class="nav-link is-active">Anggota</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="page-intro" aria-labelledby="members-title">
+      <div class="container">
+        <p class="hero-eyebrow" data-reveal>Anggota JURNALISTIK</p>
+        <h1 id="members-title" class="page-intro-title" data-reveal>
+          Struktur Anggota JURNALISTIK
+        </h1>
+        <p class="page-intro-text" data-reveal data-reveal-delay="1">
+          Orang-orang di balik setiap dokumentasi, tulisan, dan konten JURNALISTIK.
+        </p>
+      </div>
+    </section>
+
+    <section class="org-structure org-structure-compact" aria-labelledby="core-leads-title">
+      <div class="org-lead-group" data-reveal>
+        <p class="org-lead-label">Pembina JURNALISTIK</p>
+        <div class="org-tier org-tier-core org-tier-top org-pembina-row" id="pembinaCards"></div>
+      </div>
+
+      <div class="org-tier org-tier-core org-tier-top" id="pengurusIntiCards" data-reveal></div>
+    </section>
+    
+    <section class="member-directory" aria-labelledby="directory-title">
+      <div class="container">
+
+        <div class="section-heading" data-reveal>
+          <h2 id="directory-title">Pilih Divisi</h2>
+        </div>
+
+        <div class="division-filter" id="divisionFilter" role="group" aria-label="Filter anggota berdasarkan divisi" data-reveal>
+          <button type="button" class="filter-chip is-active" data-filter="semua" aria-pressed="true">
+            Semua
+          </button>
+          <button type="button" class="filter-chip" data-filter="kreatif" aria-pressed="false">
+            <i class="ph ph-palette" aria-hidden="true"></i> Kreatif
+          </button>
+          <button type="button" class="filter-chip" data-filter="desain-grafis" aria-pressed="false">
+            <i class="ph ph-paint-brush" aria-hidden="true"></i> Desain Grafis
+          </button>
+          <button type="button" class="filter-chip" data-filter="editing" aria-pressed="false">
+            <i class="ph ph-film-slate" aria-hidden="true"></i> Editing
+          </button>
+          <button type="button" class="filter-chip" data-filter="fotografi" aria-pressed="false">
+            <i class="ph ph-camera" aria-hidden="true"></i> Fotografi
+          </button>
+          <button type="button" class="filter-chip" data-filter="videografi" aria-pressed="false">
+            <i class="ph ph-video-camera" aria-hidden="true"></i> Videografi
+          </button>
+          <button type="button" class="filter-chip" data-filter="artikel" aria-pressed="false">
+            <i class="ph ph-newspaper" aria-hidden="true"></i> Artikel
+          </button>
+        </div>
+
+        <section class="division-intro" id="divisionIntro" aria-live="polite" aria-atomic="true" data-reveal>
+          <div class="division-intro-icon" aria-hidden="true">
+            <i class="ph ph-users-three"></i>
+          </div>
+          <div class="division-intro-content">
+            <p class="division-intro-eyebrow">Kenali Divisi</p>
+            <h3 class="division-intro-title" id="divisionIntroTitle">Semua Divisi</h3>
+            <p class="division-intro-description" id="divisionIntroDescription">
+              Kenali para anggota JURNALISTIK dari berbagai divisi yang bekerja bersama untuk membuat cerita dan informasi.
+            </p>
+          </div>
+        </section>
+
+        <!--
+          Grid ini kosong dengan sengaja.
+          Diisi oleh anggota.js (Part 2D) berdasarkan data/anggota.js (Part 2A).
+          Template per-kartu anggota (untuk referensi JS nanti):
+
+          <article class="member-card" data-divisi="fotografi">
+            <div class="member-card-photo">
+              <img src="assets/anggota/fotografi/nama.jpg" alt="Foto Nama Anggota" loading="lazy">
+            </div>
+            <h3 class="member-card-name">Nama Anggota</h3>
+            <p class="member-card-role">Fotografi</p>
+            <p class="member-card-quote">&ldquo;Quote singkat di sini.&rdquo;</p>
+          </article>
+        -->
+        <ul class="member-grid" id="memberGrid" role="list" aria-live="polite" aria-busy="true">
+          <li class="member-skeleton" aria-hidden="true"></li>
+          <li class="member-skeleton" aria-hidden="true"></li>
+          <li class="member-skeleton" aria-hidden="true"></li>
+          <li class="member-skeleton" aria-hidden="true"></li>
+        </ul>
+
+        <p class="member-empty-state" id="memberEmptyState" hidden>
+          Belum ada anggota di divisi ini.
+        </p>
+
+        <noscript>
+          <p class="member-empty-state">
+            Aktifkan JavaScript untuk menampilkan daftar anggota.
+          </p>
+        </noscript>
+
+      </div>
+    </section>
+
+  </main>
+
+  <div
+    class="member-detail-overlay"
+    id="memberDetailOverlay"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="memberDetailName"
+    hidden
+  >
+    <div class="member-detail-panel">
+      <div class="member-detail-header">
+        <h2 class="member-detail-name" id="memberDetailName"></h2>
+        <div class="member-detail-toolbar">
+          <button type="button" class="member-detail-close" id="memberDetailClose" aria-label="Tutup detail anggota">
+            <i class="ph ph-x" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+      <img class="member-detail-image" id="memberDetailImage" src="" alt="">
+      <div class="member-detail-body">
+        <p class="member-detail-role" id="memberDetailRole"></p>
+        <p class="member-detail-class" id="memberDetailClass"></p>
+        <p class="member-detail-intro" id="memberDetailIntro"></p>
+        <p class="member-detail-quote" id="memberDetailQuote" hidden></p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <span class="brand-name">JURNALISTIK</span>
+        <p class="footer-tagline">Mengabadikan cerita.<br>Menyampaikan informasi.</p>
+
+        
+          <a href="https://www.instagram.com/jurnalis.smantiga/"
+          class="social-link"
+          aria-label="Instagram JURNALISTIK"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+          <span class="social-link-text">
+            <strong>Instagram JURNALISTIK</strong>
+            <span>@jurnalis.smantiga</span>
+          </span>
+        </a>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navigasi footer">
+        <ul>
+          <li><a href="dokumentasi.html">Dokumentasi</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-bottom">
+        <p>Ada bug atau saran? Hubungi <a href="https://wa.me/6285723616706?text=Halo%2C%20saya%20ingin%20melaporkan%20bug%20atau%20memberikan%20saran%20untuk%20website%20JURNALISTIK." class="footer-credit-link" target="_blank" rel="noopener noreferrer">Adnan Sya'ban Mubarok via WhatsApp</a></p>
+        <p>&copy; <span id="currentYear">2026</span> JURNALISTIK</p>
+      </div>
+
+    </div>
+  </footer>
+  <script src="data/anggota.js"></script>
+  <script src="js/anggota.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

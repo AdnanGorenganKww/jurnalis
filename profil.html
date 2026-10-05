@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profil — JURNALISTIK</title>
+  <meta name="description" content="Profil organisasi JURNALISTIK — tentang kami, struktur kepengurusan 2026/2027, dan divisi.">
+
+  <link rel="icon" type="image/png" href="assets/logo/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="container header-inner">
+
+      <a href="index.html" class="brand" aria-label="JURNALISTIK — Beranda">
+        <img src="assets/logo/logo.png" alt="" class="brand-logo" width="32" height="32">
+        <span class="brand-name">JURNALISTIK</span>
+      </a>
+
+      <nav class="main-nav" id="mainNav" aria-label="Navigasi utama">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Beranda</a></li>
+          <li><a href="profil.html" class="nav-link is-active">Profil</a></li>
+          <li><a href="dokumentasi.html" class="nav-link">Dokumentasi</a></li>
+          <li><a href="anggota.html" class="nav-link">Anggota</a></li>
+        </ul>
+      </nav>
+
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        aria-label="Buka menu navigasi"
+        aria-expanded="false"
+        aria-controls="mainNav"
+      >
+        <i class="ph ph-list" aria-hidden="true"></i>
+      </button>
+
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="page-intro" aria-labelledby="about-title">
+      <div class="container">
+        <p class="hero-eyebrow" data-reveal>Tentang JURNALISTIK</p>
+        <h1 id="about-title" class="page-intro-title" data-reveal>
+          Wadah kreativitas dan informasi di sekolah kami.
+        </h1>
+        <p class="page-intro-text" data-reveal data-reveal-delay="1">
+          JURNALISTIK adalah organisasi yang mendokumentasikan, merancang, dan menyampaikan
+          setiap cerita di lingkungan sekolah — mulai dari kegiatan harian, upacara,
+          hingga momen-momen besar — melalui tulisan, foto, dan video.
+        </p>
+      </div>
+    </section>
+
+    <section class="org-structure" aria-labelledby="org-title">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <h2 id="org-title">Struktur Kepengurusan 2026/2027</h2>
+        </div>
+
+        <div class="org-lead-group" data-reveal>
+          <p class="org-lead-label">Pembina JURNALISTIK</p>
+          <div class="org-tier org-tier-core org-tier-top org-pembina-row" id="pembinaCards"></div>
+        </div>
+
+        <div class="org-tier org-tier-core org-tier-top" id="pengurusIntiCards" data-reveal></div>
+
+        <div class="org-support-section" data-reveal>
+          <div class="org-support-group">
+            <h3 class="org-support-title">Sekretaris</h3>
+            <div class="org-support-scroll" role="list" aria-label="Pengurus sekretaris" tabindex="0">
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Kepala Sekretaris belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Sekretaris</p><h4 class="org-person-name">Kepala Sekretaris</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Sekretaris 1 belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Sekretaris</p><h4 class="org-person-name">Sekretaris 1</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Sekretaris 2 belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Sekretaris</p><h4 class="org-person-name">Sekretaris 2</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="org-support-group">
+            <h3 class="org-support-title">Bendahara</h3>
+            <div class="org-support-scroll" role="list" aria-label="Pengurus bendahara" tabindex="0">
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Kepala Bendahara belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Bendahara</p><h4 class="org-person-name">Kepala Bendahara</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Bendahara 1 belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Bendahara</p><h4 class="org-person-name">Bendahara 1</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Bendahara 2 belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Bendahara</p><h4 class="org-person-name">Bendahara 2</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+            </div>
+          </div>
+
+          <div class="org-support-group">
+            <h3 class="org-support-title">Humas</h3>
+            <div class="org-support-scroll" role="list" aria-label="Pengurus humas" tabindex="0">
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Kepala Humas belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Humas</p><h4 class="org-person-name">Kepala Humas</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+              <article class="org-person-card" role="listitem">
+                <div class="org-person-media" role="img" aria-label="Foto Humas 1 belum tersedia"><i class="ph ph-image-square" aria-hidden="true"></i><span>Foto belum tersedia</span></div>
+                <div class="org-person-info"><p class="org-person-role">Humas</p><h4 class="org-person-name">Humas 1</h4><p class="org-person-name-detail">Nama</p></div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="divisions" aria-labelledby="divisions-title">
+      <div class="container">
+        <div class="section-heading" data-reveal>
+          <h2 id="divisions-title">Divisi</h2>
+        </div>
+
+        <div class="division-grid">
+
+          <a href="anggota.html?divisi=kreatif" class="division-card" data-reveal>
+            <i class="ph ph-palette division-icon" aria-hidden="true"></i>
+            <h3>Kreatif</h3>
+            <p>Merumuskan ide dan konsep kreatif di balik setiap konten JURNALISTIK.</p>
+            <i class="ph ph-arrow-right division-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="anggota.html?divisi=desain-grafis" class="division-card" data-reveal>
+            <i class="ph ph-paint-brush division-icon" aria-hidden="true"></i>
+            <h3>Desain Grafis</h3>
+            <p>Menerjemahkan ide menjadi visual — poster, feed, dan identitas JURNALISTIK.</p>
+            <i class="ph ph-arrow-right division-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="anggota.html?divisi=editing" class="division-card" data-reveal>
+            <i class="ph ph-film-slate division-icon" aria-hidden="true"></i>
+            <h3>Editing</h3>
+            <p>Merapikan dan menyusun hasil dokumentasi jadi konten yang siap tayang.</p>
+            <i class="ph ph-arrow-right division-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="anggota.html?divisi=fotografi" class="division-card" data-reveal>
+            <i class="ph ph-camera division-icon" aria-hidden="true"></i>
+            <h3>Fotografi</h3>
+            <p>Mengabadikan momen kegiatan sekolah lewat lensa kamera.</p>
+            <i class="ph ph-arrow-right division-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="anggota.html?divisi=videografi" class="division-card" data-reveal>
+            <i class="ph ph-video-camera division-icon" aria-hidden="true"></i>
+            <h3>Videografi</h3>
+            <p>Merekam dan mengemas kegiatan sekolah menjadi cerita bergerak.</p>
+            <i class="ph ph-arrow-right division-arrow" aria-hidden="true"></i>
+          </a>
+
+          <a href="anggota.html?divisi=artikel" class="division-card" data-reveal>
+            <i class="ph ph-newspaper division-icon" aria-hidden="true"></i>
+            <h3>Artikel</h3>
+            <p>Menulis dan menyampaikan informasi kegiatan lewat kata-kata.</p>
+            <i class="ph ph-arrow-right division-arrow" aria-hidden="true"></i>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <span class="brand-name">JURNALISTIK</span>
+        <p class="footer-tagline">Mengabadikan cerita.<br>Menyampaikan informasi.</p>
+
+        
+          <a href="https://www.instagram.com/jurnalis.smantiga/"
+          class="social-link"
+          aria-label="Instagram JURNALISTIK"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="ph ph-instagram-logo" aria-hidden="true"></i>
+          <span class="social-link-text">
+            <strong>Instagram JURNALISTIK</strong>
+            <span>@jurnalis.smantiga</span>
+          </span>
+        </a>
+      </div>
+
+      <nav class="footer-nav" aria-label="Navigasi footer">
+        <ul>
+          <li><a href="dokumentasi.html">Dokumentasi</a></li>
+          <li><a href="profil.html">Profil</a></li>
+          <li><a href="anggota.html">Anggota</a></li>
+        </ul>
+      </nav>
+
+      <div class="footer-bottom">
+        <p>Ada bug atau saran? Hubungi <a href="https://wa.me/6285723616706?text=Halo%2C%20saya%20ingin%20melaporkan%20bug%20atau%20memberikan%20saran%20untuk%20website%20JURNALISTIK." class="footer-credit-link" target="_blank" rel="noopener noreferrer">Adnan Sya'ban Mubarok via WhatsApp</a></p>
+        <p>&copy; <span id="currentYear">2026</span> JURNALISTIK</p>
+      </div>
+
+    </div>
+  </footer>
+  <script src="data/anggota.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
